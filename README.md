@@ -8,6 +8,10 @@
 - フルーツ名をタップするとチェックマークが切り替わる機能を追加（課題15）
 - 既存の項目の名前を変更できる機能を追加（課題16)
 
+
+https://github.com/emmatone/EmmaKadai16/assets/120438170/c6f9126b-e26a-4c17-848c-9cd2dc1ec793
+
+
 ## Memo
 - SwiftUI
 - List
