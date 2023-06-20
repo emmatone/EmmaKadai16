@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct FruitEditorView: View {
+    enum Mode {
+        case add
+        case edit(Fruit)
+
+        var title: String {
+            switch self {
+            case .add:
+                return "新規フルーツを登録"
+            case .edit:
+                return "フルーツを更新"
+            }
+        }
+
+        var initialName: String {
+            switch self {
+            case .add:
+                return ""
+            case .edit(let fruit):
+                return fruit.name
+            }
+        }
+    }
+
     @EnvironmentObject var fruits: Fruits
     @Environment(\.dismiss) var dismiss
-    @Binding var isAdd: Bool
+    let mode: Mode
     @State var newFruitName: String = ""
-    let currentFruit: Fruit?
 
     var body: some View {
         NavigationStack {
@@ -24,7 +46,7 @@ struct FruitEditorView: View {
             }
             .padding(50)
             Spacer()
-                .navigationTitle(isAdd ? "新規フルーツを登録" : "フルーツを更新")
+                .navigationTitle(mode.title)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbarBackground(.visible, for: .navigationBar)
                 .toolbarBackground(Color.teal.opacity(0.2), for: .navigationBar)
@@ -36,25 +58,20 @@ struct FruitEditorView: View {
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Save") {
-                            if isAdd {
+                            switch mode {
+                            case .add:
                                 _ = fruits.addNewFruitIfPossible(newFruitName)
-                            } else {
-
-                                guard let item = currentFruit else {
-                                    return
-                                }
-                                _ = fruits.updateFruitNameIfPossible(item, newFruitName: newFruitName)
+                            case .edit(let fruit):
+                                _ = fruits.updateFruitNameIfPossible(fruit, newFruitName: newFruitName)
                             }
+
                             dismiss()
                         }
                     }
                 }
         }
         .onAppear(perform: {
-            guard let item = currentFruit  else {
-                return newFruitName = ""
-            }
-            return newFruitName = item.name
+            newFruitName = mode.initialName
         })
     }
 }
@@ -62,9 +79,9 @@ struct FruitEditorView: View {
 struct FruitEditorView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            FruitEditorView(isAdd: .constant(true), currentFruit: nil)
+            FruitEditorView(mode: .add)
                 .environmentObject(Fruits())
-            FruitEditorView(isAdd: .constant(false), currentFruit: Fruits().fruitsData[0])
+            FruitEditorView(mode: .edit(Fruits().fruitsData[0]))
                 .environmentObject(Fruits())
         }
     }

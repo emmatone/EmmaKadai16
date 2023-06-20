@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var fruits: Fruits
-    @State private var selectedFruit: Fruit?
+    @State private var fruitToEdit: Fruit?
     @State private var isAdd: Bool = false
 
     var body: some View {
@@ -27,14 +27,14 @@ struct ContentView: View {
                         // MARK: - フルーツ名更新アイコン
                         EditButton()
                             .onTapGesture {
-                                selectedFruit = fruit
+                                fruitToEdit = fruit
                             }
                     }
                 }
                 .listStyle(.inset)
                 // MARK: - 新規フルーツ追加View
-                .fullScreenCover(item: $selectedFruit) { item in
-                    FruitEditorView(isAdd: $isAdd, currentFruit: item)
+                .fullScreenCover(item: $fruitToEdit) { item in
+                    FruitEditorView(mode: .edit(item))
                 }
             }
             .navigationTitle("課題16")
@@ -49,7 +49,7 @@ struct ContentView: View {
                     })
                     // MARK: - 既存フルーツ更新View
                     .fullScreenCover(isPresented: $isAdd) {
-                        FruitEditorView(isAdd: $isAdd, currentFruit: nil)
+                        FruitEditorView(mode: .add)
                     }
                 }
             }
