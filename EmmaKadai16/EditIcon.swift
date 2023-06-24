@@ -2,7 +2,7 @@
 //  EditIcon.swift
 //  EmmaKadai16
 //
-//  Created by Hitomi Ishiodori on 2023/06/16.
+//  Created by Emma
 //
 
 import SwiftUI
