@@ -9,14 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var fruits: Fruits
-    @State private var selectedFruit: Fruit?
+    // 編集する果物という名称に変更
+    @State private var fruitToEdit: Fruit?
     @State private var isAdd: Bool = false
 
     var body: some View {
         NavigationStack {
             VStack {
                 SubTitle()
-                // MARK: - List {
+                // MARK: - List
                 List(fruits.fruitsData) { fruit in
                     HStack {
                         // MARK: - チェックマークと果物名
@@ -27,14 +28,14 @@ struct ContentView: View {
                         // MARK: - フルーツ名更新アイコン
                         EditButton()
                             .onTapGesture {
-                                selectedFruit = fruit
+                                fruitToEdit = fruit
                             }
                     }
                 }
                 .listStyle(.inset)
-                // MARK: - 新規フルーツ追加View
-                .fullScreenCover(item: $selectedFruit) { item in
-                    FruitEditorView(isAdd: $isAdd, currentFruit: item)
+                // MARK: - 既存フルーツ更新View
+                .fullScreenCover(item: $fruitToEdit) { item in
+                    FruitEditorView(mode: .edit(item))
                 }
             }
             .navigationTitle("課題16")
@@ -47,9 +48,9 @@ struct ContentView: View {
                     }, label: {
                         Image(systemName: "plus")
                     })
-                    // MARK: - 既存フルーツ更新View
+                    // MARK: - 新規フルーツ追加View
                     .fullScreenCover(isPresented: $isAdd) {
-                        FruitEditorView(isAdd: $isAdd, currentFruit: nil)
+                        FruitEditorView(mode: .add)
                     }
                 }
             }

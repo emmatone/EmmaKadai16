@@ -24,3 +24,8 @@ https://github.com/emmatone/EmmaKadai16/assets/120438170/c6f9126b-e26a-4c17-848c
 - 配列の要素を検索してインデックスを取得するため、.firstIndex(of:)からidで検索するためfirstIndex(where:)に変更。
 - .contentShape, .onTapGesture
 - 新規追加と既存更新の場合でフルーツ名編集画面を共有するようにした。
+
+## Feedback
+- 変数名をよりわかりやすく。
+- enumで新規追加と既存更新を切り替える。
+
