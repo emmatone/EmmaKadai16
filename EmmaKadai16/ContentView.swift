@@ -26,7 +26,7 @@ struct ContentView: View {
                                 _ = fruits.toggleIsCheckedIfPossible(fruit)
                             }
                         // MARK: - フルーツ名更新アイコン
-                        EditButton()
+                        EditIcon()
                             .onTapGesture {
                                 fruitToEdit = fruit
                             }

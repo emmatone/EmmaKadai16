@@ -17,7 +17,6 @@
 		9D8206162A3C5CD000357B9B /* SubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8206152A3C5CD000357B9B /* SubTitle.swift */; };
 		9D8206182A3C7A0200357B9B /* EditIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8206172A3C7A0200357B9B /* EditIcon.swift */; };
 		9D82061A2A3C7A3E00357B9B /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8206192A3C7A3E00357B9B /* CheckMark.swift */; };
-		9DB216E92A329BC500DD567F /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB216E82A329BC500DD567F /* EditButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +33,6 @@
 		9D8206172A3C7A0200357B9B /* EditIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIcon.swift; sourceTree = "<group>"; };
 		9D8206192A3C7A3E00357B9B /* CheckMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
 		9D82061B2A3D000500357B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		9DB216E82A329BC500DD567F /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 				9D5D6C9F2A31C7BE0035C537 /* FruitEditorView.swift */,
 				9D5D6C9D2A31C74A0035C537 /* FruitRow.swift */,
 				9D8206192A3C7A3E00357B9B /* CheckMark.swift */,
-				9DB216E82A329BC500DD567F /* EditButton.swift */,
 				9D8206172A3C7A0200357B9B /* EditIcon.swift */,
 				9D8206152A3C5CD000357B9B /* SubTitle.swift */,
 				9D5D6C9B2A31C6BE0035C537 /* FruitsData.swift */,
@@ -185,7 +182,6 @@
 			files = (
 				9D8206182A3C7A0200357B9B /* EditIcon.swift in Sources */,
 				9D5D6C8F2A31C6560035C537 /* ContentView.swift in Sources */,
-				9DB216E92A329BC500DD567F /* EditButton.swift in Sources */,
 				9D82061A2A3C7A3E00357B9B /* CheckMark.swift in Sources */,
 				9D5D6C8D2A31C6560035C537 /* EmmaKadai16App.swift in Sources */,
 				9D5D6CA02A31C7BE0035C537 /* FruitEditorView.swift in Sources */,
